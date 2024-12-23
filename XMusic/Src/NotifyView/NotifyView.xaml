@@ -1,0 +1,215 @@
+<UserControl
+    x:Class="XMusic.Src.NotifyView.NotifyView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attached="clr-namespace:XMusic.Src.NotifyView.Attached"
+    xmlns:converter="clr-namespace:XMusic.Src.NotifyView.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:XMusic.Src.NotifyView.ViewModel"
+    xmlns:nextType="clr-namespace:XMusic.Src.NotifyView.Model"
+    d:DataContext="{d:DesignInstance Type=vm:NotifyViewModel}"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converter:IsLikePathColorConverter x:Key="ColorConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Style="{StaticResource MediaButtonStyle}">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Path
+                        Width="15"
+                        Height="15"
+                        Fill="White"
+                        Stretch="Uniform">
+                        <Path.Data>
+                            <Geometry>
+                                M875.52 433.152q-7.168-1.024-12.8-10.24t-8.704-33.792q-5.12-39.936-26.112-58.88t-65.024-27.136q-46.08-9.216-81.408-37.376t-58.88-52.736q-22.528-21.504-34.816-15.36t-12.288 22.528l0 44.032 0 96.256q0 57.344-0.512 123.904t-0.512 125.952l0 104.448 0 58.368q1.024 24.576-7.68 54.784t-32.768 56.832-64 45.568-99.328 22.016q-60.416 3.072-109.056-21.504t-75.264-61.952-26.112-81.92 38.4-83.456 81.92-54.272 84.992-16.896 73.216 5.632 47.616 13.312l0-289.792q0-120.832 1.024-272.384 0-29.696 15.36-48.64t40.96-22.016q21.504-3.072 35.328 8.704t28.16 32.768 35.328 47.616 56.832 52.224q30.72 23.552 53.76 33.792t43.008 18.944 39.424 20.992 43.008 39.936q23.552 26.624 28.672 55.296t0.512 52.224-14.848 38.4-17.408 13.824z
+                            </Geometry>
+                        </Path.Data>
+                    </Path>
+                    <TextBlock
+                        Width="150"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="{Binding Title}" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <StackPanel
+                Margin="10"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Button Command="{Binding NextCommand}" CommandParameter="After" Height="35"
+                        Style="{StaticResource MediaButtonStyle}">
+                    <Path
+                        Width="15"
+                        Height="15"
+                        Data="M0,10 L10,0 L10,20 Z"
+                        Fill="White"
+                        Stretch="Uniform" />
+                </Button>
+                <ToggleButton
+                    x:Name="PlayPauseButton"
+                    IsChecked="True"
+                    Style="{StaticResource PlayToggleButton}" />
+
+                <Button Command="{Binding NextCommand}" CommandParameter="Before" Height="35"
+                        Style="{StaticResource MediaButtonStyle}">
+
+                    <Path
+                        Width="15"
+                        Height="15"
+                        Data="M10,0 L20,10 L10,20 Z"
+                        Fill="White"
+                        Stretch="Uniform" />
+                </Button>
+            </StackPanel>
+            <StackPanel Margin="20" Orientation="Vertical">
+                <Button
+                    Height="35"
+                    attached:BtnIsCheckedAttached.IsChecked="{Binding IsLike}"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding LikeStatusCommand}"
+                    FontSize="24"
+                    Foreground="White"
+                    Style="{StaticResource MediaButtonStyle}">
+                    <Button.Content>
+                        <Path
+                            Width="15"
+                            Height="15"
+                            Data="M 10,30 C 10,15 25,0 40,15 C 55,0 70,15 70,30 C 70,45 55,60 40,75 C 25,60 10,45 10,30 Z"
+                            Fill="{Binding IsLike, Mode=TwoWay, Converter={StaticResource ColorConverter}}"
+                            Stretch="Uniform" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Style="{StaticResource MediaButtonStyle}">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Path
+                        Width="15"
+                        Height="15"
+                        Fill="White"
+                        Stretch="Uniform">
+                        <Path.Data>
+                            <Geometry>
+                                M400 896c46.048 0 80-24.256 80-48S446.048 800 400 800s-80 24.256-80 48 33.952 48 80 48z m0 32C338.144 928 288 892.16 288 848s50.144-80 112-80 112 35.84 112 80-50.144 80-112 80zM752 864c46.048 0 80-24.256 80-48S798.048 768 752 768s-80 24.256-80 48 33.952 48 80 48z m0 32c-61.856 0-112-35.84-112-80s50.144-80 112-80 112 35.84 112 80-50.144 80-112 80z M923.008 449.984l-94.4 377.664 31.04 7.744 105.344-421.376L579.2 449.088l-102.624 410.56 31.04 7.744 97.12-388.48z M570.112 573.92l352-32-2.88-31.872-352 32zM366.208 528.032c19.2-29.536 10.752-69.312-18.816-88.512a64.064 64.064 0 0 0-88.544 18.816L224 512l-53.664-34.88a64.128 64.128 0 0 0-88.544 18.848c-19.2 29.568-10.784 69.312 18.816 88.544l161.024 104.544 104.576-161.024z m-1.376-115.36a96.128 96.128 0 0 1 28.192 132.8l-121.984 187.84-187.84-121.984a96.064 96.064 0 0 1-28.256-132.8 96.128 96.128 0 0 1 132.8-28.224l26.848 17.44 17.44-26.848a96.064 96.064 0 0 1 132.8-28.224zM891.36 157.856a44.896 44.896 0 0 0-1.088-63.36 44.608 44.608 0 0 0-63.36 1.12l-40 41.44-41.44-40a44.896 44.896 0 0 0-63.36 1.088c-17.28 17.92-16.768 46.08 1.12 63.36l105.888 102.24 102.24-105.888z m-87.456-84.48a76.608 76.608 0 0 1 108.576-1.888c30.528 29.44 31.264 78.176 1.92 108.608l-124.48 128.896-128.928-124.48a76.608 76.608 0 0 1-1.888-108.608 76.896 76.896 0 0 1 108.608-1.888l18.4 17.792 17.792-18.4zM440.864 157.28a35.296 35.296 0 0 0-19.456-45.824 35.04 35.04 0 0 0-45.824 19.456l-20.352 50.432-50.432-20.384a35.296 35.296 0 0 0-45.856 19.456c-7.328 18.144 1.344 38.496 19.488 45.824l115.68 46.72 46.752-115.68zM345.92 118.912a67.04 67.04 0 0 1 87.488-37.12 67.296 67.296 0 0 1 37.12 87.488L411.84 314.656 266.432 255.904a67.04 67.04 0 0 1-37.12-87.488 67.296 67.296 0 0 1 87.456-37.12l20.8 8.384 8.352-20.768z
+                            </Geometry>
+                        </Path.Data>
+                    </Path>
+                    <TextBlock
+                        Width="150"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="Text"
+                        TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="5">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Style="{StaticResource MediaButtonStyle}">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Path
+                        Width="15"
+                        Height="15"
+                        Fill="White"
+                        Stretch="Uniform">
+                        <Path.Data>
+                            <Geometry>
+                                M944.48 552.458667l-182.357333 330.666666a73.792 73.792 0 0 1-64.565334 38.325334h-362.133333a73.792 73.792 0 0 1-64.565333-38.325334l-182.357334-330.666666a75.338667 75.338667 0 0 1 0-72.682667l182.357334-330.666667a73.792 73.792 0 0 1 64.565333-38.325333h362.133333a73.792 73.792 0 0 1 64.565334 38.325333l182.357333 330.666667a75.338667 75.338667 0 0 1 0 72.682667z m-55.989333-31.146667a10.773333 10.773333 0 0 0 0-10.378667l-182.037334-330.666666a10.517333 10.517333 0 0 0-9.205333-5.482667H335.733333a10.517333 10.517333 0 0 0-9.205333 5.482667l-182.037333 330.666666a10.773333 10.773333 0 0 0 0 10.378667l182.037333 330.666667a10.517333 10.517333 0 0 0 9.205333 5.472h361.514667a10.517333 10.517333 0 0 0 9.205333-5.472l182.037334-330.666667zM513.738667 682.666667c-94.261333 0-170.666667-76.405333-170.666667-170.666667s76.405333-170.666667 170.666667-170.666667c94.250667 0 170.666667 76.405333 170.666666 170.666667s-76.416 170.666667-170.666666 170.666667z m0-64c58.912 0 106.666667-47.754667 106.666666-106.666667s-47.754667-106.666667-106.666666-106.666667-106.666667 47.754667-106.666667 106.666667 47.754667 106.666667 106.666667 106.666667z
+                            </Geometry>
+                        </Path.Data>
+                    </Path>
+                    <TextBlock
+                        Width="150"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="Setting"
+                        TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6">
+            <Button
+                Background="Transparent"
+                BorderThickness="0"
+                Style="{StaticResource MediaButtonStyle}">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <Path
+                        Width="15"
+                        Height="15"
+                        Fill="White"
+                        Stretch="Uniform">
+                        <Path.Data>
+                            <Geometry>
+                                M313.67168 153.53856a40.96 40.96 0 0 1 39.7312 71.65952A327.53664 327.53664 0 0 0 184.32 512c0 180.98176 146.69824 327.68 327.68 327.68s327.68-146.69824 327.68-327.68c0-116.67456-61.44-222.65856-159.78496-281.45664a40.96 40.96 0 1 1 42.04544-70.30784A409.35424 409.35424 0 0 1 921.6 512c0 226.22208-183.37792 409.6-409.6 409.6S102.4 738.22208 102.4 512A409.43616 409.43616 0 0 1 313.67168 153.53856z M471.04 102.4m40.96 0l0 0q40.96 0 40.96 40.96l0 409.6q0 40.96-40.96 40.96l0 0q-40.96 0-40.96-40.96l0-409.6q0-40.96 40.96-40.96Z
+                            </Geometry>
+                        </Path.Data>
+                    </Path>
+                    <TextBlock
+                        Width="150"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="Exit"
+                        TextAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

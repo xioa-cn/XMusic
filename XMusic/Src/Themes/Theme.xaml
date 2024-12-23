@@ -1,0 +1,10 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- 背景色 -->
+    <Color x:Key="Background.Color">#e6f7ff</Color>
+    <SolidColorBrush x:Key="Background.Brush" Color="{StaticResource Background.Color}" />
+    
+    <!-- 次级背景色 -->
+    <Color x:Key="Background.Secondary.Color">#bae7ff</Color>
+    <SolidColorBrush x:Key="Background.Secondary.Brush" Color="{StaticResource Background.Secondary.Color}" />
+</ResourceDictionary>

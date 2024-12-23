@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:XMusic"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Src/Themes/Notify.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Src/Themes/Theme.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
