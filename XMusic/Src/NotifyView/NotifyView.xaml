@@ -6,8 +6,8 @@
     xmlns:converter="clr-namespace:XMusic.Src.NotifyView.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:XMusic.Src.NotifyView.ViewModel"
     xmlns:nextType="clr-namespace:XMusic.Src.NotifyView.Model"
+    xmlns:vm="clr-namespace:XMusic.Src.NotifyView.ViewModel"
     d:DataContext="{d:DesignInstance Type=vm:NotifyViewModel}"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -32,6 +32,7 @@
             <Button
                 Background="Transparent"
                 BorderThickness="0"
+                Command="{Binding OpenApplicationCommand}"
                 Style="{StaticResource MediaButtonStyle}">
                 <StackPanel
                     HorizontalAlignment="Center"
@@ -67,8 +68,11 @@
                 Margin="10"
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
-                <Button Command="{Binding NextCommand}" CommandParameter="After" Height="35"
-                        Style="{StaticResource MediaButtonStyle}">
+                <Button
+                    Height="35"
+                    Command="{Binding NextCommand}"
+                    CommandParameter="After"
+                    Style="{StaticResource MediaButtonStyle}">
                     <Path
                         Width="15"
                         Height="15"
@@ -81,8 +85,11 @@
                     IsChecked="True"
                     Style="{StaticResource PlayToggleButton}" />
 
-                <Button Command="{Binding NextCommand}" CommandParameter="Before" Height="35"
-                        Style="{StaticResource MediaButtonStyle}">
+                <Button
+                    Height="35"
+                    Command="{Binding NextCommand}"
+                    CommandParameter="Before"
+                    Style="{StaticResource MediaButtonStyle}">
 
                     <Path
                         Width="15"
@@ -183,6 +190,7 @@
             <Button
                 Background="Transparent"
                 BorderThickness="0"
+                Command="{Binding CloseApplicationCommand}"
                 Style="{StaticResource MediaButtonStyle}">
                 <StackPanel
                     HorizontalAlignment="Center"

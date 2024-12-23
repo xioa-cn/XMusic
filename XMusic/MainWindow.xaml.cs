@@ -24,5 +24,10 @@ namespace XMusic
         {
             InitializeComponent();
         }
+
+        private void Main_Window_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //this.Visibility = Visibility.Collapsed;
+        }
     }
 }

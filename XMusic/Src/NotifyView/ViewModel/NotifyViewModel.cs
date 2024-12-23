@@ -3,6 +3,7 @@ using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using XMusic.Src.NotifyView.Model;
+using XMusic.Src.Utils;
 
 namespace XMusic.Src.NotifyView.ViewModel;
 
@@ -56,4 +57,26 @@ public partial class NotifyViewModel : ObservableObject
     }
 
     #endregion
+
+    #region Close
+
+    [RelayCommand]
+    private void CloseApplication()
+    {
+        GlobalHelper.Close();
+    }
+
+    #endregion
+
+    #region Open
+
+    [RelayCommand]
+    private void OpenApplication()
+    {
+        GlobalHelper.Open();
+    }
+
+    #endregion
+
+
 }

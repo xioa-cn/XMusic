@@ -12,7 +12,7 @@ namespace XMusic;
 /// </summary>
 public partial class App
 {
-    private TaskbarIcon? _notifyIcon;
+    private static TaskbarIcon? _notifyIcon;
     public static NotifyViewModel NotifyViewModel { get; set; } = new NotifyViewModel();
 
     private void NotifyIconInitialize()

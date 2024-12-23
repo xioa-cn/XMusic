@@ -9,12 +9,17 @@
 
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+      <PackageReference Include="HandyControl" Version="3.5.1" />
       <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
       <PackageReference Include="Xioa.WPF.XLog" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Src\NotifyView\Assets\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="Assets\BasePgae\bg.jpg" />
     </ItemGroup>
 
     <ItemGroup>

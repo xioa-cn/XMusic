@@ -1,14 +1,19 @@
-﻿<Application x:Class="XMusic.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:XMusic"
-             StartupUri="MainWindow.xaml">
+﻿<Application
+    x:Class="XMusic.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:XMusic.Src.Converter"
+    xmlns:local="clr-namespace:XMusic">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Src/Themes/Notify.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="Src/Themes/Theme.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+                <ResourceDictionary Source="Src/Themes/MainView.xaml" />
+                <ResourceDictionary Source="Src/Themes/Notify.xaml" />
+                <ResourceDictionary Source="Src/Themes/Theme.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <converter:ConvertToDoubleConverter x:Key="ConvertToDouble" Increment="10" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

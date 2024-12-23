@@ -1,12 +1,31 @@
-﻿<Window x:Class="XMusic.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:XMusic"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+﻿<Window
+    x:Class="XMusic.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:component="clr-namespace:XMusic.Src.MainView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:XMusic"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    AllowsTransparency="True"
+    Background="Transparent"
+    MouseDoubleClick="Main_Window_DoubleClick"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="10" GlassFrameThickness="0" />
+    </WindowChrome.WindowChrome>
+    <Border CornerRadius="10">
+        <Border.Background>
+            <SolidColorBrush Opacity="0.9" Color="White" />
+        </Border.Background>
+        <Border.Effect>
+            <BlurEffect Radius="1" />
+        </Border.Effect>
+        <component:MainView />
+    </Border>
 </Window>

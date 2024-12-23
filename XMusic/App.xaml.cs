@@ -28,9 +28,12 @@ namespace XMusic
             };
             Logger?.LogInfo("startup");
             NotifyIconInitialize();
+            Window.Show();
             base.OnStartup(e);
         }
-        
+
+
+
         protected override void OnExit(ExitEventArgs e)
         {
             _notifyIcon?.Dispose();
