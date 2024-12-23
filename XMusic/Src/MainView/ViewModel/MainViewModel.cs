@@ -10,7 +10,7 @@ public partial class MainViewModel : ObservableObject
 {
     #region ContentVisibility
 
-    [ObservableProperty] private Visibility _contentVisibility = Visibility.Hidden;
+    [ObservableProperty] private Visibility _contentVisibility = Visibility.Collapsed;
     [RelayCommand]
     private void ShowContent()
     {
@@ -19,7 +19,7 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void NoShowContent()
     {
-        ContentVisibility = Visibility.Hidden;
+        ContentVisibility = Visibility.Collapsed;
         MainCMenuEnum.Normal.Run();
     }
 
@@ -28,10 +28,21 @@ public partial class MainViewModel : ObservableObject
 
     #region ContentMenu
 
+    private bool currentStatusIsMax = false;
     [RelayCommand]
     private void WindowMethod(string mType)
     {
         var value = Enum.Parse<MainCMenuEnum>(mType);
+        if (value == MainCMenuEnum.Max && currentStatusIsMax)
+        {
+            MainCMenuEnum.Normal.Run();
+            currentStatusIsMax = false;
+            return;
+        }
+        else
+        {
+            currentStatusIsMax = true;
+        }
         value.Run();
     }
 

@@ -8,12 +8,39 @@
     xmlns:vm="clr-namespace:XMusic.Src.MainView.ViewModel"
     d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="show">
+            <DoubleAnimation
+                Storyboard.TargetName="InteractiveContent"
+                Storyboard.TargetProperty="Opacity"
+                To="1"
+                Duration="0:0:0.2" />
+        </Storyboard>
+        <Storyboard x:Key="Noshow">
+            <DoubleAnimation
+                Storyboard.TargetName="InteractiveContent"
+                Storyboard.TargetProperty="Opacity"
+                To="0"
+                Duration="0:0:0.2" />
+        </Storyboard>
+    </UserControl.Resources>
     <Border Margin="0" Background="#214995">
+        <Border.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard Storyboard="{StaticResource show}" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard Storyboard="{StaticResource Noshow}" />
+            </EventTrigger>
+        </Border.Triggers>
         <Grid>
             <StackPanel
+                x:Name="InteractiveContent"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Opacity="0"
                 Orientation="Horizontal">
+
                 <Button
                     Margin="20"
                     Background="Transparent"
@@ -54,9 +81,9 @@
             </StackPanel>
 
 
-            <StackPanel VerticalAlignment="Bottom">
-                <Button>te</Button>
-            </StackPanel>
+            <Grid>
+                <local:BottomContentBg />
+            </Grid>
         </Grid>
     </Border>
 </UserControl>
