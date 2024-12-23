@@ -1,0 +1,62 @@
+﻿<UserControl
+    x:Class="XMusic.Src.MainView.Components.BottomBarContentControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:XMusic.Src.MainView.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:XMusic.Src.MainView.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+    mc:Ignorable="d">
+    <Border Margin="0" Background="#214995">
+        <Grid>
+            <StackPanel
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+                <Button
+                    Margin="20"
+                    Background="Transparent"
+                    Command="{Binding NoShowContentCommand}">
+                    <Button.Content>
+                        <Path
+                            Width="15"
+                            Height="15"
+                            Fill="White"
+                            Stretch="Uniform">
+                            <Path.Data>
+                                <Geometry>
+                                    M512 666.922667l382.634667-202.538667-39.936-75.434667L512 570.368 169.301333 388.949333l-39.936 75.434667L512 666.88z
+                                </Geometry>
+                            </Path.Data>
+                        </Path>
+                    </Button.Content>
+                </Button>
+                <Button
+                    Margin="0,20"
+                    Background="Transparent"
+                    Command="{Binding WindowMethodCommand}"
+                    CommandParameter="Max">
+                    <Button.Content>
+                        <Path
+                            Width="15"
+                            Height="15"
+                            Fill="White"
+                            Stretch="Uniform">
+                            <Path.Data>
+                                <Geometry>
+                                    M460.8 940.8h-320l262.4-262.4c12.8-12.8 12.8-38.4 0-51.2-12.8-19.2-38.4-19.2-57.6 0l-262.4 262.4v-345.6c0-19.2-19.2-38.4-38.4-38.4s-38.4 19.2-38.4 38.4v364.8c0 51.2 38.4 115.2 96 115.2h358.4c19.2 0 38.4-19.2 38.4-38.4 0-25.6-19.2-44.8-38.4-44.8zM940.8 6.4h-377.6c-19.2 0-38.4 19.2-38.4 38.4s19.2 38.4 38.4 38.4h320l-268.8 262.4c-12.8 12.8-12.8 38.4 0 57.6 19.2 12.8 44.8 12.8 57.6 0l262.4-262.4v320c0 19.2 19.2 38.4 38.4 38.4s38.4-19.2 38.4-38.4v-352c6.4-64-25.6-102.4-70.4-102.4z
+                                </Geometry>
+                            </Path.Data>
+                        </Path>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+
+            <StackPanel VerticalAlignment="Bottom">
+                <Button>te</Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
