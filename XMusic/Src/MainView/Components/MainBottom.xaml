@@ -13,13 +13,13 @@
             Margin="10"
             FontSize="25"
             Foreground="Black"
-            Text="BottomTitle" />
+            Text="音乐世界" />
         <Button
             Width="100"
             Margin="20,10"
             HorizontalAlignment="Right"
             Command="{Binding ShowContentCommand}"
-            Content="Content"
+            Content="播放"
             Style="{StaticResource BottomContentBtn}" />
     </Grid>
 </UserControl>

@@ -11,7 +11,7 @@
         <Border.Background>
             <ImageBrush
                 ImageSource="pack://application:,,,/XMusic;component/Assets/BasePgae/bg.jpg"
-                Opacity="0.6"
+                Opacity="0.99"
                 Stretch="UniformToFill" />
         </Border.Background>
     </Border>

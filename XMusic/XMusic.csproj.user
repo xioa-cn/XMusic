@@ -8,6 +8,12 @@
     <Compile Update="Src\MainView\Components\BottomContentBg.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Src\MainView\Components\BottomContentLeft.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Src\MainView\Components\BottomContentRight.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Src\MainView\Page\BasePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +23,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Src\MainView\Components\BottomContentBg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Src\MainView\Components\BottomContentLeft.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Src\MainView\Components\BottomContentRight.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Src\MainView\Page\BasePage.xaml">

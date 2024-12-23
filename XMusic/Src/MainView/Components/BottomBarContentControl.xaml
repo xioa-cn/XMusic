@@ -23,8 +23,34 @@
                 To="0"
                 Duration="0:0:0.2" />
         </Storyboard>
+
+        <Style x:Key="BottomCloseBtn" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </UserControl.Resources>
-    <Border Margin="0" Background="#214995">
+    <Border Margin="0">
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                <GradientStop Offset="0" Color="Red" />
+                <GradientStop Offset="1" Color="Blue" />
+            </LinearGradientBrush>
+        </Border.Background>
+
         <Border.Triggers>
             <EventTrigger RoutedEvent="MouseEnter">
                 <BeginStoryboard Storyboard="{StaticResource show}" />
@@ -34,6 +60,9 @@
             </EventTrigger>
         </Border.Triggers>
         <Grid>
+            <Grid>
+                <local:BottomContentBg />
+            </Grid>
             <StackPanel
                 x:Name="InteractiveContent"
                 HorizontalAlignment="Left"
@@ -44,7 +73,8 @@
                 <Button
                     Margin="20"
                     Background="Transparent"
-                    Command="{Binding NoShowContentCommand}">
+                    Command="{Binding NoShowContentCommand}"
+                    Style="{StaticResource BottomCloseBtn}">
                     <Button.Content>
                         <Path
                             Width="15"
@@ -63,7 +93,8 @@
                     Margin="0,20"
                     Background="Transparent"
                     Command="{Binding WindowMethodCommand}"
-                    CommandParameter="Max">
+                    CommandParameter="Max"
+                    Style="{StaticResource BottomCloseBtn}">
                     <Button.Content>
                         <Path
                             Width="15"
@@ -82,8 +113,14 @@
 
 
             <Grid>
-                <local:BottomContentBg />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <local:BottomContentLeft Grid.Column="0" />
+                <local:BottomContentRight Grid.Column="1" />
             </Grid>
+
         </Grid>
     </Border>
 </UserControl>

@@ -48,27 +48,27 @@
                     VerticalAlignment="Center"
                     FontSize="18"
                     Foreground="Black">
-                    ApplicationTitle
+                    音乐之声
                 </TextBlock>
                 <Button
                     Margin="10"
-                    Content="Tab1"
+                    Content="首页"
                     Style="{StaticResource HeaderTabBtn}" />
                 <Button
                     Margin="10"
-                    Content="Tab2"
+                    Content="推荐"
                     Style="{StaticResource HeaderTabBtn}" />
                 <Button
                     Margin="10"
-                    Content="Tab3"
+                    Content="音乐库"
                     Style="{StaticResource HeaderTabBtn}" />
                 <Button
                     Margin="10"
-                    Content="Tab4"
+                    Content="下载"
                     Style="{StaticResource HeaderTabBtn}" />
                 <Button
                     Margin="10"
-                    Content="Tab5"
+                    Content="帮助中心"
                     Style="{StaticResource HeaderTabBtn}" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
@@ -78,11 +78,11 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     hc:BorderElement.CornerRadius="15"
-                    hc:InfoElement.Placeholder="search"
+                    hc:InfoElement.Placeholder="搜索歌曲"
                     Style="{StaticResource TextBoxExtend}" />
                 <Button
                     Margin="10,10,20,10"
-                    Content="Search"
+                    Content="搜索"
                     Style="{StaticResource HeaderSearchBtn}" />
             </StackPanel>
         </Grid>
