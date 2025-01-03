@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using XMusic.Src.MainView.ViewModel;
 
 namespace XMusic.Src.MainView.Components
 {
@@ -21,11 +22,29 @@ namespace XMusic.Src.MainView.Components
     /// </summary>
     public partial class BottomContentLeft : UserControl
     {
+        private MainViewModel viewModel;
         public BottomContentLeft()
         {
             InitializeComponent();
             var storyboard = (Storyboard)FindResource("RotateAnimation");
             storyboard.Begin();
+            this.Loaded += (sender, args) =>
+            {
+                if (this.DataContext is MainViewModel value)
+                {
+                    viewModel = value;
+                }
+            };
+        }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Play();
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Stop();
         }
     }
 }

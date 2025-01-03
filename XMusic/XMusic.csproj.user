@@ -17,6 +17,9 @@
     <Compile Update="Src\MainView\Page\BasePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Src\MainView\Views\MusicLabPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Src\MainView\Components\BottomBarContentControl.xaml">
@@ -32,6 +35,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Src\MainView\Page\BasePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Src\MainView\Views\MusicLabPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

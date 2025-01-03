@@ -82,7 +82,8 @@
                 </Button>
                 <ToggleButton
                     x:Name="PlayPauseButton"
-                    IsChecked="True"
+                    Command="{Binding PlayStatusCommand}"
+                    IsChecked="{Binding IsCheck}"
                     Style="{StaticResource PlayToggleButton}" />
 
                 <Button

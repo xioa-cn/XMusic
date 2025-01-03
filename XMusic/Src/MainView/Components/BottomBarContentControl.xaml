@@ -117,8 +117,8 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <local:BottomContentLeft Grid.Column="0" />
-                <local:BottomContentRight Grid.Column="1" />
+                <local:BottomContentLeft Grid.Column="0" Grid.ColumnSpan="2" />
+                <!--<local:BottomContentRight Grid.Column="1" />-->
             </Grid>
 
         </Grid>

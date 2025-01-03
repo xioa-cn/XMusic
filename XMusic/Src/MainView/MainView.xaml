@@ -60,6 +60,8 @@
                     Style="{StaticResource HeaderTabBtn}" />
                 <Button
                     Margin="10"
+                    Command="{Binding GoToViewMusicLabCommand}"
+                    CommandParameter="{Binding ElementName=frame}"
                     Content="音乐库"
                     Style="{StaticResource HeaderTabBtn}" />
                 <Button

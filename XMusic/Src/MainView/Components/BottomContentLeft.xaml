@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:XMusic.Src.MainView.Components"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    xmlns:vm="clr-namespace:XMusic.Src.MainView.ViewModel"
+    d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
     mc:Ignorable="d">
     <UserControl.Resources>
         <Storyboard x:Key="RotateAnimation">
@@ -19,37 +19,117 @@
                 Duration="0:0:10" />
         </Storyboard>
     </UserControl.Resources>
-    <Viewbox>
-        <Grid Margin="70">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10">
+            <TextBlock
+                Margin="20"
+                HorizontalAlignment="Center"
+                Foreground="#FFF"
+                Text="{Binding PlayerInfo}" />
+        </StackPanel>
+        <Viewbox Grid.Row="1" Margin="20">
+            <Grid>
+                <!--  外边框  -->
+                <Ellipse
+                    Width="160"
+                    Height="160"
+                    Margin="20">
+                    <Ellipse.Fill>
+                        <SolidColorBrush Color="#FF333333" />
+                    </Ellipse.Fill>
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="OuterRotateTransform" CenterX="105" CenterY="105" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
 
-            <!--  外边框  -->
-            <Ellipse
-                Width="210"
-                Height="210"
-                Margin="20">
-                <Ellipse.Fill>
-                    <SolidColorBrush Color="#FF333333" />
-                </Ellipse.Fill>
-                <Ellipse.RenderTransform>
-                    <RotateTransform x:Name="OuterRotateTransform" CenterX="105" CenterY="105" />
-                </Ellipse.RenderTransform>
-            </Ellipse>
+                <!--  原有的唱片封面  -->
+                <Ellipse
+                    Width="150"
+                    Height="150"
+                    Margin="20">
+                    <Ellipse.Fill>
+                        <ImageBrush
+                            x:Name="AlbumCover"
+                            ImageSource="/Assets/Bottom/Music.png"
+                            Stretch="UniformToFill" />
+                    </Ellipse.Fill>
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="RotateTransform" CenterX="75" CenterY="75" />
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Grid>
+        </Viewbox>
+        <StackPanel
+            Grid.Row="2"
+            Margin="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+            <Slider
+                x:Name="ProgressSlider"
+                Height="20"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Maximum="{Binding TotalTime}"
+                Value="{Binding CurrentPosition, Mode=TwoWay}" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Foreground="#FFF"
+                    Text="{Binding CurrentTime}" />
+                <TextBlock Foreground="#FFF">/</TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Foreground="#FFF"
+                    Text="{Binding TotalTimeString}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Width="75"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Command="{Binding BeforeCommand}"
+                    Content="Before" />
+                <Button
+                    Width="75"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Command="{Binding NextCommand}"
+                    Content="Next" />
+                <Button
+                    x:Name="PlayButton"
+                    Width="75"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="PlayButton_Click"
+                    Content="播放" />
+                <Button
+                    x:Name="StopButton"
+                    Width="75"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="StopButton_Click"
+                    Content="停止" />
+                <CheckBox
+                    x:Name="LoopToggleButton"
+                    Width="100"
+                    Margin="10"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="循环播放"
+                    IsChecked="{Binding IsLooping, Mode=TwoWay}" />
+            </StackPanel>
 
-            <!--  原有的唱片封面  -->
-            <Ellipse
-                Width="200"
-                Height="200"
-                Margin="20">
-                <Ellipse.Fill>
-                    <ImageBrush
-                        x:Name="AlbumCover"
-                        ImageSource="/Assets/Bottom/Music.png"
-                        Stretch="UniformToFill" />
-                </Ellipse.Fill>
-                <Ellipse.RenderTransform>
-                    <RotateTransform x:Name="RotateTransform" CenterX="100" CenterY="100" />
-                </Ellipse.RenderTransform>
-            </Ellipse>
-        </Grid>
-    </Viewbox>
+        </StackPanel>
+    </Grid>
 </UserControl>
